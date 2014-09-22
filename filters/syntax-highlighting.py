@@ -34,6 +34,9 @@ data = sys.stdin.read().decode(encoding='utf-8', errors='ignore')
 filename = sys.argv[1]
 formatter = HtmlFormatter(encoding='utf-8', style='pastie')
 
+# make sure the background matches our stylesheet
+formatter.nobackground = True
+
 try:
 	lexer = guess_lexer_for_filename(filename, data, encoding='utf-8')
 except ClassNotFound:
